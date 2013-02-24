@@ -1,0 +1,5 @@
+name = Uyan
+description = 简单、友好的社会化评论框!
+core = 7.x
+
+configure = admin/config/services/uyan
