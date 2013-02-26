@@ -40,7 +40,7 @@ function uyan_node_view($node, $view_mode, $langcode) {
       case 'full':
         $node->content['uyan'] = array(
         '#weight' => 100,
-        '#markup' => _create_uyan_html(),
+        '#markup' => _uyan_create_html(),
         );
         break;
 
@@ -84,7 +84,7 @@ function uyan_block_info() {
 function uyan_block_view($delta = '') {
   $block = array();
   if ($delta == 'uyan') {
-    $block['content'] = _create_uyan_html();
+    $block['content'] = _uyan_create_html();
   }
   return $block;
 }
@@ -92,12 +92,12 @@ function uyan_block_view($delta = '') {
 /**
  * The Uyan core code.
  */
-function _create_uyan_html() {
+function _uyan_create_html() {
   $appkey = variable_get('uyan_appkey', 0);
 
   $output = '<!-- UY BEGIN -->
             <div id="uyan_frame"></div>
-            <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=' .$appkey . '" async=""></script>
+            <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=' . $appkey . '" async=""></script>
             <!-- UY END -->';
   return $output;
 }
