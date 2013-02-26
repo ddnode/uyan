@@ -5,6 +5,9 @@
  * Administration page for the Uyan Comments
  */
 
+/**
+ * Return a system setting form for Uyan admin page.
+ */
 function uyan_admin_settings() {
   $form['uyan_node_types'] = array(
     '#type' => 'checkboxes',
@@ -13,7 +16,7 @@ function uyan_admin_settings() {
     '#default_value' => variable_get('uyan_node_types', array()),
   );
 
-  $form['uyan_appkey'] = array (
+  $form['uyan_appkey'] = array(
     '#type' => 'textfield',
     '#title' => t('Your Uyan user id:'),
     '#maxlength' => 256,
