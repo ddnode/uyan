@@ -16,9 +16,9 @@ function uyan_enable() {
       <a href="@perm">permissions</a> to administer Uyan.', array(
         '@settings' => url('admin/config/services/uyan'),
           '@perm' => url('admin/people/permissions', array(
-            'fragment' => 'module-uyan'
+            'fragment' => 'module-uyan',
             )
-          )
+          ),
         )
       )
     );

@@ -39,8 +39,8 @@ function uyan_node_view($node, $view_mode, $langcode) {
     switch ($view_mode) {
       case 'full':
         $node->content['uyan'] = array(
-        '#weight' => 100,
-        '#markup' => _uyan_create_html(),
+          '#weight' => 100,
+          '#markup' => _uyan_create_html(),
         );
         break;
 
@@ -101,4 +101,3 @@ function _uyan_create_html() {
             <!-- UY END -->';
   return $output;
 }
-
