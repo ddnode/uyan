@@ -11,3 +11,4 @@ See: http://www.uyan.cc/
   Select the type which to add Uyan comments;
  -appkey
   Fill your uyan user id to appkey.
+  
