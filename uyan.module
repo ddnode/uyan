@@ -48,6 +48,7 @@ function uyan_node_view($node, $view_mode, $langcode) {
         $links['uyan'] = array(
           'title' => t('Comments(0)'),
           'href' => 'node/' . $node->nid,
+          'fragment' => 'uyan_frame',
           'attributes' => array(
             'id' => 'uyan_count_unit',
           ),
