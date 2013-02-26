@@ -36,11 +36,33 @@ function uyan_menu() {
  */
 function uyan_node_view($node, $view_mode, $langcode) {
   if (in_array($node->type, variable_get('uyan_node_types', array()), TRUE)) {
-    if ($view_mode == 'full') {
-      $node->content['uyan'] = array(
+    switch ($view_mode) {
+      case 'full':
+        $node->content['uyan'] = array(
         '#weight' => 100,
         '#markup' => _create_uyan_html(),
-      );
+        );
+        break;
+
+      case 'teaser':
+        $links['uyan'] = array(
+          'title' => t('Comments(0)'),
+          'href' => 'node/' . $node->nid,
+          'attributes' => array(
+            'id' => 'uyan_count_unit',
+          ),
+        );
+        $node->content['links']['uyan'] = array(
+          '#theme' => 'links',
+          '#links' => $links,
+          '#attributes' => array(
+            'class' => array('links', 'inline'),
+          ),
+        );
+
+        $appkey = variable_get('uyan_appkey', 0);
+        $node->content['links']['#attached']['js'][] = 'http://v2.uyan.cc/code/uyan.js?uid=' . $appkey;
+        break;
     }
   }
 }
@@ -65,6 +87,10 @@ function uyan_block_view($delta = '') {
   }
   return $block;
 }
+
+/**
+ * The Uyan core code.
+ */
 function _create_uyan_html() {
   $appkey = variable_get('uyan_appkey', 0);
 
